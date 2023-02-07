@@ -13,3 +13,7 @@ html{
 li{
     list-style-type: none;
 }
+
+.click {
+    cursor: pointer;
+}
