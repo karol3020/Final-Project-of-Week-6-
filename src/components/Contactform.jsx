@@ -1,9 +1,33 @@
 import React from 'react'
-// import './Contactform.css'
-
+import './Contactform.css'
+import Refresh from '@mui/icons-material/Refresh';
+import Close from '@mui/icons-material/Close';
 
 function Contactform() {
 
+
+    const closeContact = (event) => {
+        event.preventDefault()
+        const show = document.querySelector( '.modal__contact')
+            const show2 = document.querySelector( '.modal__title')
+                const show3 = document.querySelector ( '.contact__form')
+       
+                show.classList += ( ' modal__hide')
+                show2.classList +=  ( ' modal__hide')
+                show3.classList +=  ( ' modal__hide')
+            }
+
+            const openContact = (event) => {
+                event.preventDefault()
+                const show = document.querySelector( '.modal__contact')
+                    const show2 = document.querySelector( '.modal__title')
+                        const show3 = document.querySelector ( '.contact__form')
+               
+                        show.classList += ( ' modal__show')
+                        show2.classList +=  ( ' modal__show')
+                        show3.classList +=  ( ' modal__show')
+                    }
+                    
     // const closeContact = (event) => {
     //     event.preventDefault()
     //     const show = document.querySelector( '.modal__contact')
@@ -39,7 +63,7 @@ function Contactform() {
 
   return (
     <>
-         {/* <div className="modal__contact">
+         <div className="modal__contact">
             <h3 className="modal__title modal__title-contact">
                 Let's have a chat
             </h3>
@@ -54,7 +78,7 @@ function Contactform() {
                         Name
                     </label>
                     <input
-                    className='input'
+                    className='input__form'
                     name='user_name'
                     type="text" 
                     required
@@ -65,7 +89,7 @@ function Contactform() {
                         Email
                     </label>
                     <input
-                    className='input'
+                    className='input__form'
                     name='user_email'
                     type="email" 
                     required
@@ -76,7 +100,7 @@ function Contactform() {
                         Message
                     </label>
                     <textarea
-                    className='input'
+                    className='input__form'
                     name='message'
                     type="text" 
                     required
@@ -99,7 +123,7 @@ function Contactform() {
                     onClick={closeContact} 
                     /> 
             </div>
-        </div> */}
+        </div>
     </>
   )
 }

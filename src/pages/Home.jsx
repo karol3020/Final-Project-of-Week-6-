@@ -1,31 +1,41 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './Home.css'
-import Contactform from '../components/Contactform'
-import Navbar from '../components/Navbar'
-
+// import Contactform from '../components/Contactform'
+import BatmanLogo from '../assets/batman.png'
 
 function Home() {
 
+    const showInput = (event) => {
+        event.preventDefault()
+        const show = document.querySelector( '.search__input')
+        show.classList += ( '.search__show')
+    }
+
 return (
     <div className='container' >
-                <Navbar />
-                <Contactform />
+
+                 {/* <Contactform /> */}
         <main className='homepage'>
             <h1 className='hompage__title' >If you are a Batman fan you'r in a right place. Here you can search for every single film with our Batsy. </h1>
 
             <h3 className='hompage__sub--title' >
                 Enjoy !!
             </h3>
+            <div className="search__button">
+                <button className='batman'
+                    onClick={showInput} >
+                    <img 
+                    src={BatmanLogo}
+                    className='batman__logo'
+                    alt='' />
+                    <span>Search Now</span>
+                </button>
+            </div>
             <div className="input__container">
                 <input 
                 className='search__input' 
                 placeholder='Search Here Robin !!!'
                 type="text" />
-            </div>
-            <div className="searchbutton">
-                <button>
-                    <span>Search Now</span>
-                </button>
             </div>
         </main>
     </div>

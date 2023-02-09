@@ -14,6 +14,7 @@
     align-content: center;
 
     flex-direction: column;
+
 }
 
 .hompage__title,
@@ -21,6 +22,16 @@
     padding: 24px;
     font-size: 42px;
     text-align: center;
+    font-weight: 700;
+    -webkit-text-stroke: 0.8px white;
+    color: black;
+    letter-spacing: 1px ;
+    transition: 0.3s;
+}
+
+.hompage__title:hover,
+.hompage__sub--title:hover {
+    color: #fff;
 }
 
 .input__container {
@@ -37,5 +48,50 @@
     width: 75%;
     padding: 12px 6px;
     text-align: center;
+    z-index: 1;    
+    visibility: hidden;
 }
 
+.search__show:focus {
+    visibility: visible;
+}
+
+
+/*
+    batman
+*/
+
+ .search__button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.batman {
+    border: none;
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+span {
+    position: absolute;
+    font-size: 15px;
+    font-weight: 100;
+    left: 50%;
+    top: 45%;
+    letter-spacing: 3px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    color: transparent;
+    transition: all 2s ease;
+}
+
+span:hover {
+    color: white;
+}
