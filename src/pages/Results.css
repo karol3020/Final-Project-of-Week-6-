@@ -66,6 +66,16 @@
     letter-spacing: 6px;
 }
 
+
+.input__button {
+    margin-bottom: 24px;
+    border: 2px solid white;
+}
+
+.input__button:hover > .MuiSvgIcon-root {
+    animation: rotate 2s linear infinite;
+}
+
 .results {
     display: grid;
     place-items: center;

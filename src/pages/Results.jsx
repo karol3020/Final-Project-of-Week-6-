@@ -1,31 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import './Results.css'
-import { useParams } from 'react-router'
+import { useParams } from 'react-router-dom'
+import Search from '@mui/icons-material/Search';
 
 function Results() {
 
-    const params = useParams()
-    console.log(params.id)
 
-    const [posts, setPosts] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [searchTitle, setSearchTitle] = useState()
-
-    function onSearch () {
-        fetchPosts(searchTitle)
-    }
-
-    async function fetchPosts() {
-        const {data} = await axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=2d8b895b&s=`
-        )
-        setPosts(data)
-        setLoading(false)
-    }
-    
-    useEffect(() => {
-        // fetchPosts()
-    } , [])
 
   return (
     <div className='container'>
@@ -35,18 +16,19 @@ function Results() {
             className='header__input'
             placeholder='Over Here Nightwing'
             type="text"
-            value={searchTitle}
-            onChange={(event) => setSearchTitle(event.target.value)}
+            // value={searchTitle}
+            // onChange={(event) => setSearchTitle(event.target.value)}
              />
              <button
-            onClick={() => onSearch()}
-             >Search</button>
+            // onClick={() => onSearch()}
+            className='input__button'
+             ><Search /></button>
         </section>
 
         <div className='results'>
             <div className="box">
                 <span>
-                {
+                {/* {
                     loading ? (
                         new Array(10).fill(0).map((_, index) => (
                             <div className="post__container">
@@ -61,16 +43,17 @@ function Results() {
                 </div>
                         ))
                     ) : (
-                        posts.map(post => (
-                        <div className="post" key={post} >
-                        <div className="post__title">{post}</div>
-                        <p className="post__img">{post.image}</p>
+                        posts.map(data => (
+                        <div className="post" key={data} >
+                        <div className="post__title">{data.Title}</div>
+                        <p className="post__img">{data.Poster}</p>
                     </div>
                     ))
                     )
-                }
+                } */}
+
                 </span>
-            </div>     
+            </div>   
         </div>
     </div>
   )

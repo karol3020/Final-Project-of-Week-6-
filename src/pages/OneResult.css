@@ -1,0 +1,33 @@
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.film__box {
+    width: 100%;
+    height: 50vh;
+    background-color: blue;
+    display: flex;
+}
+
+.img__box {
+    width: 50%;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+
+.img__info--box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 55px 0;
+    font-size: 22px;
+    letter-spacing: 6px;
+} 
+
+.info {
+    padding-bottom: 16px;
+}

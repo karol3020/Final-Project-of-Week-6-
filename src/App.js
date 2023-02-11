@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home';
 import Results from './pages/Results'
 import Navbar from './components/Navbar'
+import OneResult from './pages/OneResult';
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
           <Navbar className='container' />
         <Routes>
           <Route path='/' element={ <Home /> } />
-            <Route path=':id' element={<Results />} />
-              <Route> {/* One Result */} </Route>
+            <Route path=':title' element={<Results />} />
+              <Route path='/one' element={<OneResult />} ></Route>
         </Routes>
       </Router>
     </div>

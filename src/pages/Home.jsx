@@ -5,12 +5,6 @@ import BatmanLogo from '../assets/batman.png'
 
 function Home() {
 
-    const showInput = (event) => {
-        event.preventDefault()
-        const show = document.querySelector( '.search__input')
-        show.classList += ( '.search__show')
-    }
-
 return (
     <div className='container' >
 
@@ -22,16 +16,13 @@ return (
                 Enjoy !!
             </h3>
             <div className="search__button">
-                <button className='batman'
-                    onClick={showInput} >
+                <button className='batman'>
                     <img 
                     src={BatmanLogo}
                     className='batman__logo'
                     alt='' />
-                    <span>Search Now</span>
+                    {/* <span>Search Now</span> */}
                 </button>
-            </div>
-            <div className="input__container">
                 <input 
                 className='search__input' 
                 placeholder='Search Here Robin !!!'
