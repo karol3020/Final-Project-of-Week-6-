@@ -53,6 +53,15 @@
     width: 75%;
     padding: 18px 12px;
     text-align: center;
+    margin-top: 30px;
+}
+
+.search__input:focus::placeholder {
+    color: transparent;
+}
+
+.search__input:hover:focus::placeholder {
+    color: transparent;
 }
 
 .search__input:hover {

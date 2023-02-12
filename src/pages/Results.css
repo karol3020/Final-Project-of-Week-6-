@@ -132,17 +132,17 @@
 
 /* 
 
-POSTS
+FILMS
 
 */
 
-.post__container {
+.film__container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
 }
 
-.post {
+.film {
     border: 1px solid black;
     background-color: white;
     margin: 20px;
@@ -150,7 +150,7 @@ POSTS
     height: 20vh;
   }
   
-  .post__title {
+  .film__title {
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
@@ -158,18 +158,18 @@ POSTS
     padding: 8px;
   }
   
-  .post__title--skeleton {
+  .film__title--skeleton {
     width: 80px;
     height: 12px;
     background-color: lightgray;
   }
   
   
-  .post__img {
+  .film__img {
     padding: 0 8px;
   }
   
-  .post__img--skeleton {
+  .film__img--skeleton {
     width: 100%;
     height: 24px;
     background-color: lightgray;

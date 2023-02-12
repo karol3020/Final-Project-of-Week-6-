@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Home.css'
 // import Contactform from '../components/Contactform'
 import BatmanLogo from '../assets/batman.png'
 
 function Home() {
+
+    let navigate = useNavigate()
+
+    const [searchTitle, setSearchTitle] = useState([])
 
 return (
     <div className='container' >
@@ -16,6 +21,19 @@ return (
                 Enjoy !!
             </h3>
             <div className="search__button">
+                <input 
+                className='search__input' 
+                placeholder='Search Here Robin !!!'
+                type="text"
+                value={searchTitle}
+                onChange={(event) => setSearchTitle(event.target.value)}
+                onKeyPress={(event) => {
+                    if (event.key === 'Enter') {
+                        navigate('/results')
+                    }
+                }}
+                />
+                
                 <button className='batman'>
                     <img 
                     src={BatmanLogo}
@@ -23,10 +41,6 @@ return (
                     alt='' />
                     {/* <span>Search Now</span> */}
                 </button>
-                <input 
-                className='search__input' 
-                placeholder='Search Here Robin !!!'
-                type="text" />
             </div>
         </main>
     </div>
