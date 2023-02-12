@@ -60,6 +60,10 @@
     color: white;
 }
 
+.header__input:focus::placeholder{
+    color: transparent;
+}
+
 .header__input::placeholder {
     color: white;
     font-size: 18px;
@@ -146,14 +150,15 @@ FILMS
     border: 1px solid black;
     background-color: white;
     margin: 20px;
-    /* width: 25%; */
-    height: 20vh;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
   }
   
   .film__title {
     font-size: 12px;
     font-weight: bold;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     border-bottom: 1px solid black;
     padding: 8px;
   }
@@ -166,11 +171,13 @@ FILMS
   
   
   .film__img {
+    min-height: 20vh;
     padding: 0 8px;
+    width: 100%;
   }
   
   .film__img--skeleton {
     width: 100%;
-    height: 24px;
+    height: 15vh;
     background-color: lightgray;
   }

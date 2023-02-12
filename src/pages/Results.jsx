@@ -6,7 +6,8 @@ import Search from '@mui/icons-material/Search';
 function Results() {
 
     const [films , setFilms] = useState([])
-
+    console.log(films)
+    
     useEffect(() => {
         async function fetchFilms() {
             const {data} = await axios.get("https://www.omdbapi.com/?i=tt3896198&apikey=2d8b895b&s=batman")
@@ -36,12 +37,18 @@ function Results() {
             <div className="box">
                 <span>
 
-                    {films.map(Search => <div>{Search.Title}</div>)}
+                    {/* {films?.Search.map(film => <div>{film.title}</div>)}  */}
 
-                    <div className="film">
-                        <div className="film__title"> </div>
-                            <div className="film__img"> </div>
-                    </div>
+                    <div className="film__container">
+                            <div className="film" >
+                                 <div className="film__title">
+                                    <div className="film__title--skeleton"></div>
+                                </div>
+                                    <div className="film__img">
+                                        <p className="film__img--skeleton"></p>
+                                    </div>
+                            </div>
+                        </div>
 
                 {/* {
                     loading ? (

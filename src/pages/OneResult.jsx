@@ -1,12 +1,23 @@
 import React from 'react'
 import './OneResult.css'
+import KeyboardBackspace from '@mui/icons-material/KeyboardBackspace';
 
 function OneResult() {
 
   return (
     <div>
         <div class="container">
-            
+            <header className='header__container' >
+                <div className='header__back' >
+                    <h1 className='header__name'>
+                    
+                    <KeyboardBackspace />
+                    Back to Cave
+                    </h1>
+
+                </div>
+            </header>
+
             <div className="film__box">
                 <div className="img__box">
                     YOOOO
@@ -25,7 +36,7 @@ function OneResult() {
         
             <div className="films__recom">
                 <div className="box__films">
-                        <div className="film">
+                        <div className="film__recom">
                             <div className="film__poster">
                                 IMG
                             </div>
@@ -37,7 +48,7 @@ function OneResult() {
                                 <p className='info'>Description</p>
                             </div>
                         </div>
-                        <div className="film">
+                        <div className="film__recom">
                             <div className="film__poster">
                                 IMG
                             </div>
@@ -49,7 +60,7 @@ function OneResult() {
                                 <p className='info'>Description</p>
                             </div>
                         </div>
-                        <div className="film">
+                        <div className="film__recom">
                             <div className="film__poster">
                                 IMG
                             </div>
@@ -61,7 +72,7 @@ function OneResult() {
                                 <p className='info'>Description</p>
                             </div>
                         </div>
-                        <div className="film">
+                        <div className="film__recom">
                             <div className="film__poster">
                                 IMG
                             </div>

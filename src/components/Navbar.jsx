@@ -1,7 +1,8 @@
 import React from 'react'
 import './Navbar.css'
 import Logo from '../assets/movie'
-
+import { Link } from 'react-router-dom'
+ 
 function Navbar() {
 
   return (
@@ -17,8 +18,19 @@ function Navbar() {
 
             <div className="navbar__right">
                 <ul className='navbar__links'>
-                    <button className='pluse'>Home</button>
-                    <button className='pluse'>Find your Film</button>
+                    <Link to={'/'}>
+                    <button className='pluse'
+                    >Home
+                    </button>
+                    </Link>                    
+                    
+                    <Link to={'/results'}>
+                    <button className='pluse'
+                    >
+                    Find your Film
+                    </button>
+                    </Link>
+                    
                     <button className='pluse'
                     >Contact</button>
                 </ul>
