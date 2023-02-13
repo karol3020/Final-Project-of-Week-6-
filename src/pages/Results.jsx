@@ -39,6 +39,12 @@ function Results() {
 
                     {/* {films?.Search.map(film => <div>{film.title}</div>)}  */}
 
+                    {
+                         films?.Search.map((film) => (
+                            <div>{film.title}</div>
+                                                  ))
+                    }
+
                     <div className="film__container">
                             <div className="film" >
                                  <div className="film__title">
