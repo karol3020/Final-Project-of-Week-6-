@@ -1,0 +1,23 @@
+.films__recom {
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto;
+    height: 25vh;
+    background-color: yellow;
+}
+
+
+.box__films {
+    display: flex;
+    justify-content: space-between;
+}
+
+.film {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.film__poster{
+    padding-right: 20px;
+}

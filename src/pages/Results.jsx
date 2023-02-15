@@ -2,24 +2,29 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import './Results.css'
 import Search from '@mui/icons-material/Search';
+import { useParams } from 'react-router-dom'
+import Filmsrecom from '../components/Filmsrecom';
 
 function Results() {
 
+    const {title} = useParams()
     const [films , setFilms] = useState([])
-    const [loading , setLoading] = useState(false)
-    const [searchTitle, setSearchTitle] = useState()
+    const [loading , setLoading] = useState(true)
+    const [searchTitle, setSearchTitle] = useState(title)
 
+    async function fetchFilms(filmTitle) {
+        setLoading(false)
+        const {data} = await axios.get(`https://www.omdbapi.com/?i=tt3896198&apikey=2d8b895b&s=${filmTitle || title}`)
+        setFilms(data)
+    }
+    
     useEffect(() => {
-        async function fetchFilms() {
-            setLoading(true)
-            const {data} = await axios.get("https://www.omdbapi.com/?i=tt3896198&apikey=2d8b895b&s=batman")
-            setFilms(data)
-        }
-        fetchFilms()
-    } , [])
+            fetchFilms()
+        } , [])
 
     function onSearch() {
-        console.log("search")
+        console.log(searchTitle)
+        fetchFilms(searchTitle)
     }
 
     function onSearchKeyPress(key) {
@@ -46,6 +51,8 @@ function Results() {
              ><Search /></button>
         </section>
 
+        <Filmsrecom className='space' />
+
         <div className='results'>
             <div className="box">
                 <span>
@@ -54,7 +61,9 @@ function Results() {
                 {
                     loading ? (
                         new Array(6).fill(0).map((_, index) => (
-                            <div className="film" key={index} >
+                                <div className="film"
+                                 key={index} 
+                                 >
                     <div className="film__title">
                         <div className="film__title--skeleton"></div>
                     </div>
@@ -64,14 +73,17 @@ function Results() {
                 </div>
                         ))
                     ) : (
-                        new Array(6).fill(0).map((_, index) => (
+
                         films.Search?.map((film) => (
-                            <div className="film" key={index} >
-                            <div className="film__title">{film.Title}</div>
-                            <p>{film.Poster}</p>
+                            <div className="film"
+                            key={film.id}>
+                            <div className="film__title" 
+                             >{film.Title}</div>
+                             <div className="film__img">
+                                <img src={film.Poster} />
+                             </div>
                             </div>
                             ))
-                        ))
                     )
                 }
 

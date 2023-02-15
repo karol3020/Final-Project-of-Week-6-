@@ -12,7 +12,7 @@ function App() {
           <Navbar className='container' />
         <Routes>
           <Route path='/' element={ <Home /> } />
-            <Route path='/results' element={<Results />} />
+            <Route path=':Title' element={<Results />} />
               <Route path='/one' element={<OneResult />} ></Route>
         </Routes>
       </Router>
