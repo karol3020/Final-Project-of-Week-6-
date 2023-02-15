@@ -6,15 +6,27 @@ import Search from '@mui/icons-material/Search';
 function Results() {
 
     const [films , setFilms] = useState([])
-    console.log(films)
-    
+    const [loading , setLoading] = useState(false)
+    const [searchTitle, setSearchTitle] = useState()
+
     useEffect(() => {
         async function fetchFilms() {
+            setLoading(true)
             const {data} = await axios.get("https://www.omdbapi.com/?i=tt3896198&apikey=2d8b895b&s=batman")
             setFilms(data)
         }
         fetchFilms()
     } , [])
+
+    function onSearch() {
+        console.log("search")
+    }
+
+    function onSearchKeyPress(key) {
+        if (key === 'Enter') {
+            onSearch()
+        }
+    }
 
   return (
     <div className='container'>
@@ -24,11 +36,12 @@ function Results() {
             className='header__input'
             placeholder='Over Here Nightwing'
             type="text"
-            // value={searchTitle}
-            // onChange={(event) => setSearchTitle(event.target.value)}
+            value={searchTitle}
+            onChange={(event) => setSearchTitle(event.target.value)}
+            onKeyPress={(event) => onSearchKeyPress(event.key)}
              />
              <button
-            // onClick={() => onSearch()}
+            onClick={() => onSearch()}
             className='input__button'
              ><Search /></button>
         </section>
@@ -36,30 +49,11 @@ function Results() {
         <div className='results'>
             <div className="box">
                 <span>
-
-                    {/* {films?.Search.map(film => <div>{film.title}</div>)}  */}
-
-                    {
-                         films?.Search.map((film) => (
-                            <div>{film.title}</div>
-                                                  ))
-                    }
-
                     <div className="film__container">
-                            <div className="film" >
-                                 <div className="film__title">
-                                    <div className="film__title--skeleton"></div>
-                                </div>
-                                    <div className="film__img">
-                                        <p className="film__img--skeleton"></p>
-                                    </div>
-                            </div>
-                        </div>
 
-                {/* {
+                {
                     loading ? (
-                        new Array(10).fill(0).map((_, index) => (
-                            <div className="film__container">
+                        new Array(6).fill(0).map((_, index) => (
                             <div className="film" key={index} >
                     <div className="film__title">
                         <div className="film__title--skeleton"></div>
@@ -68,18 +62,20 @@ function Results() {
                      <p className="film__img--skeleton"></p>
                     </div>
                 </div>
-                </div>
                         ))
                     ) : (
-                        posts.map(data => (
-                        <div className="film" key={data} >
-                        <div className="film__title">{data.Title}</div>
-                        <p className="film__img">{data.Poster}</p>
-                    </div>
-                    ))
+                        new Array(6).fill(0).map((_, index) => (
+                        films.Search?.map((film) => (
+                            <div className="film" key={index} >
+                            <div className="film__title">{film.Title}</div>
+                            <p>{film.Poster}</p>
+                            </div>
+                            ))
+                        ))
                     )
-                } */}
+                }
 
+                    </div>
                 </span>
             </div>   
         </div>
