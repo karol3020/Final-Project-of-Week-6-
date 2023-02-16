@@ -51,8 +51,6 @@ function Results() {
              ><Search /></button>
         </section>
 
-        <Filmsrecom className='space' />
-
         <div className='results'>
             <div className="box">
                 <span>
@@ -91,6 +89,7 @@ function Results() {
                 </span>
             </div>   
         </div>
+        <Filmsrecom className='space' />
     </div>
   )
 }

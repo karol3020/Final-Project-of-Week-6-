@@ -11,6 +11,7 @@ function Filmsrecom() {
         setLoading(false)
         const {data} = await axios.get ("https://www.omdbapi.com/?i=tt3896198&apikey=2d8b895b&s=batman")
         setrecentFilm(data)
+        console.log(data)
     }
     
     useEffect(() => {
@@ -19,59 +20,27 @@ function Filmsrecom() {
 
   return (
     <div className='space'>
-                <div className="films__recom">
-                <div className="box__films">
-                        <div className="film__recom">
-                            <div className="film__poster">
-                                IMG
-                            </div>
-                            <div className="film__info">
-                                <h2 className='info'>Title</h2>
-                                <h4 className='info'>Year</h4>
-                                <h4 className='info'>Actors</h4>
-                                <h4 className='info'>Time</h4>
-                                <p className='info'>Description</p>
-                            </div>
-                        </div>
-                        <div className="film__recom">
-                            <div className="film__poster">
-                                IMG
-                            </div>
-                            <div className="film__info">
-                                <h2 className='info'>Title</h2>
-                                <h4 className='info'>Year</h4>
-                                <h4 className='info'>Actors</h4>
-                                <h4 className='info'>Time</h4>
-                                <p className='info'>Description</p>
-                            </div>
-                        </div>
-                        <div className="film__recom">
-                            <div className="film__poster">
-                                IMG
-                            </div>
-                            <div className="film__info">
-                                <h2 className='info'>Title</h2>
-                                <h4 className='info'>Year</h4>
-                                <h4 className='info'>Actors</h4>
-                                <h4 className='info'>Time</h4>
-                                <p className='info'>Description</p>
-                            </div>
-                        </div>
-                        <div className="film__recom">
-                            <div className="film__poster">
-                                IMG
-                            </div>
-                            <div className="film__info">
-                                <h2 className='info'>Title</h2>
-                                <h4 className='info'>Year</h4>
-                                <h4 className='info'>Actors</h4>
-                                <h4 className='info'>Time</h4>
-                                <p className='info'>Description</p>
-                            </div>
-                        </div>
-                </div>
-            </div>
+         <div className="films__recom">
+            <div className="box__films">
+                
+                {
+                    recentfilms.Search?.map((film) => {
+                <div className="film2">
+                    <div className="film__img2">
+                        <img src={film.Poster} />
+                    </div>
+                    <div className="film__text2">
+                        <h1>{film.Title}</h1>
+                        <h2>Actors</h2>
+                        <h3>Year</h3>
+                        <h4>Description</h4>
+                    </div>
+                </div>       
+                    })
+                }
 
+            </div>
+        </div>
     </div>
   )
 }
