@@ -59,6 +59,7 @@
     width: 75%;
     text-align: center;
     color: white;
+    font-size: 18px;
 }
 
 .header__input:focus::placeholder{
@@ -82,12 +83,12 @@
 }
 
 .results {
-    display: grid;
-    place-items: center;
+    display: none;
 }
 
-.results{
-    display: none;
+.results--show{
+    display: grid;
+    place-items: center;
 }
 
 .box {

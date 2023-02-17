@@ -5,6 +5,14 @@ import { Link } from 'react-router-dom'
  
 function Navbar() {
 
+  const openContact = (event) => {
+    event.preventDefault()
+    const show = document.querySelector( '.modal__shownes')
+    const hide = document.querySelector( '.container')
+     show.classList += ( ' modal__show')
+     hide.classList += ( ' modal__hide')
+        }
+
   return (
     <>
     <nav className='navbar'>
@@ -32,6 +40,7 @@ function Navbar() {
                     </Link>
                     
                     <button className='pluse'
+                    onClick={openContact}
                     >Contact</button>
                 </ul>
             </div>

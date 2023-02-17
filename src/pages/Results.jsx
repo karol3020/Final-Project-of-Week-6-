@@ -2,10 +2,13 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import './Results.css'
 import Search from '@mui/icons-material/Search';
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Filmsrecom from '../components/Filmsrecom';
+import Contactform from '../components/Contactform';
 
 function Results() {
+
+    // let navigate = useNavigate()
 
     const {title} = useParams()
     const [films , setFilms] = useState([])
@@ -14,27 +17,35 @@ function Results() {
 
     async function fetchFilms(filmTitle) {
         setLoading(false)
-        const {data} = await axios.get(`https://www.omdbapi.com/?i=tt3896198&apikey=2d8b895b&s=${filmTitle || title}`)
+        const {data} = await axios.get(`https://www.omdbapi.com/?apikey=2d8b895b&s=${filmTitle || title}`)
         setFilms(data)
     }
     
     useEffect(() => {
-            fetchFilms()
+            fetchFilms() 
         } , [])
 
     function onSearch() {
         console.log(searchTitle)
         fetchFilms(searchTitle)
-    }
+     }
 
     function onSearchKeyPress(key) {
         if (key === 'Enter') {
+            showResults()
             onSearch()
         }
     }
 
+    function showResults() {
+        const add = document.body.querySelector( '.results')
+        add.classList += ( '.results--show')
+        fetchFilms(searchTitle)
+    }
+
   return (
-    <div className='container'>
+      <div className='container'>
+        <Contactform />
         <section className='header'>
             <h2 className='header__text'>Browse Films</h2>
             <input
@@ -44,9 +55,11 @@ function Results() {
             value={searchTitle}
             onChange={(event) => setSearchTitle(event.target.value)}
             onKeyPress={(event) => onSearchKeyPress(event.key)}
+            
              />
              <button
             onClick={() => onSearch()}
+            onClick={() => showResults()}
             className='input__button'
              ><Search /></button>
         </section>
@@ -60,7 +73,7 @@ function Results() {
                     loading ? (
                         new Array(6).fill(0).map((_, index) => (
                                 <div className="film"
-                                 key={index} 
+                                //  key={index} 
                                  >
                     <div className="film__title">
                         <div className="film__title--skeleton"></div>
@@ -71,10 +84,10 @@ function Results() {
                 </div>
                         ))
                     ) : (
-
                         films.Search?.map((film) => (
                             <div className="film"
-                            key={film.id}>
+                            // key={film.id}
+                            >
                             <div className="film__title" 
                              >{film.Title}</div>
                              <div className="film__img">

@@ -3,25 +3,30 @@
     max-width: 1200px;
     margin: 60px auto;
     height: 30vh;
+    border: 2px solid rgba(255, 213, 0, 0.647);
+    background-color: rgba(0, 0, 0, 0.366);
 }
 
 
 .box__films {
     display: flex;
-    justify-content: space-between;
-
+    justify-content: space-evenly;
 }
 
 .film2 {
     min-width: 25vh;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
-
-
 .film__img2 > img {
+    margin-top: 50px;
     max-width: 25vh;
     aspect-ratio: 3/2;
     object-fit: contain;
+}
+
+.film__text2 {
+    color: white;
 }

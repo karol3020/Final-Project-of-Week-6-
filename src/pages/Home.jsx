@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Home.css'
-// import Contactform from '../components/Contactform'
+import Contactform from '../components/Contactform'
 import BatmanLogo from '../assets/batman.png'
 
 function Home() {
@@ -13,7 +13,7 @@ function Home() {
 return (
     <div className='container' >
 
-                 {/* <Contactform /> */}
+                 <Contactform />
         <main className='homepage'>
             <h1 className='hompage__title' >If you are a Batman fan you'r in a right place. Here you can search for every single film with our Batsy. </h1>
 
@@ -39,7 +39,6 @@ return (
                     src={BatmanLogo}
                     className='batman__logo'
                     alt='' />
-                    {/* <span>Search Now</span> */}
                 </button>
             </div>
         </main>

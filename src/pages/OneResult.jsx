@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import './OneResult.css'
 import KeyboardBackspace from '@mui/icons-material/KeyboardBackspace';
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import Filmsrecom from '../components/Filmsrecom';
+import Contactform from '../components/Contactform';
+
 
 function OneResult() {
 
-    // const {imdbID} = useParams()
+    let navigate = useNavigate()
+
+    const {imdbID} = useParams()
     const [ films, setFIlms] = useState([])
     const [loading, setLoading] = useState(true)
     // const [searchId, setSearchId] = useState()
 
     async function fetchPosts() {
         setLoading(false)
-        const { data } = await axios.get(`https://www.omdbapi.com/?i=tt3896198&apikey=2d8b895b&s=batman`)
-        // console.log(data)
+        const { data } = await axios.get(`https://www.omdbapi.com/?apikey=2d8b895b&i=tt0372784`)
         setFIlms(data)
+        console.log(data)
     }
 
     useEffect(() => {
@@ -25,23 +30,25 @@ function OneResult() {
 
   return (
       <div>
+        <Contactform />
         <div className="container">
             <header className='header__container' >
                 <div className='header__back' >
-                    <h1 className='header__name'>
-                    
-                    <KeyboardBackspace />
+                    <div className='header__name'onClick={() => navigate('/results')}>
+                    <KeyboardBackspace onClick={() => navigate('/results')} />
+                    <h1 className='cursor' >
                     Back to Cave
                     </h1>
+                </div>
 
                 </div>
             </header>
         </div>
 
-
-        {
-            loading ? (
-                <div className="container">
+        <div className="container">
+            <div className="film__box">
+                {
+                    loading ? (
                 <div className="film__box--skeleton">
                    <span className='--spa:1'>l</span>
                    <span className='--spa:2'>o</span>
@@ -54,72 +61,26 @@ function OneResult() {
                    <span className='--spa:9'>.</span>
                    <span className='--spa:10'>.</span>
                 </div>
-            </div>
             ) : (
-                films.Search?.map((film) => (
-                    
-                    <div className="container">
-                        <div className="film__box">
-                            <div className="img__box">
+                                        
+                        films.title?.map((film) => (
+                        <>
+                            <div className="img__box" key={film.id}>
                                 <img src={film.Poster} alt="" />
                             </div>
-            
                             <div className="img__info--box">
                                 <h2 className='info'>{film.Title}</h2>
                                 <h4 className='info'>{film.Year}</h4>     
-                            </div>
-                        </div>
-                    </div>            
-                        ))
-               
+                                <h4 className='info'>{film.Type}</h4>     
+                            </div>       
+                         </>
+                )) 
             )
         }   
-
-      
-            <div className="films__recom">
-                <div className="box__films">
-                    <div className="box__film">
-                            <div className="film__poster">
-                                IMG
-                            </div>
-                            <div className="film__info">
-                                <h2 className='info'>Title</h2>
-                                <h4 className='info'>Year</h4>
-                                <h4 className='info'>Time</h4>
-                            </div>
-                    </div>
-                    <div className="box__film">
-                            <div className="film__poster">
-                                IMG
-                            </div>
-                            <div className="film__info">
-                                <h2 className='info'>Title</h2>
-                                <h4 className='info'>Year</h4>
-                                <h4 className='info'>Time</h4>
-                            </div>
-                    </div>
-                    <div className="box__film">
-                            <div className="film__poster">
-                                IMG
-                            </div>
-                            <div className="film__info">
-                                <h2 className='info'>Title</h2>
-                                <h4 className='info'>Year</h4>
-                                <h4 className='info'>Time</h4>
-                            </div>
-                    </div>
-                    <div className="box__film">
-                            <div className="film__poster">
-                                IMG
-                            </div>
-                            <div className="film__info">
-                                <h2 className='info'>Title</h2>
-                                <h4 className='info'>Year</h4>
-                                <h4 className='info'>Time</h4>
-                            </div>
-                    </div>
-                </div>
             </div>
+        </div>
+
+        <Filmsrecom />
 
     </div>
   )

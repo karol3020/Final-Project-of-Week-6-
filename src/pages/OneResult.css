@@ -15,9 +15,14 @@
     align-items: center;
 }
 
+.cursor {
+    cursor: pointer;
+}
+
 .header__name > .MuiSvgIcon-root {
     font-size: 48px;
     margin-right: 15px;
+    cursor: pointer;
 }
 
 .header__name:hover > .MuiSvgIcon-root {
@@ -129,30 +134,4 @@
     40% {
         transform: translateY(0px);
     }
-}
-
-/* 
-
-RECOMENDS 
-
-*/
-
-.films__recom {
-    width: 100%;
-    max-width: 1200px;
-    margin: 60px auto;
-    height: 25vh;
-    background-color: rgb(102, 100, 100);
-}
-
-
-.box__films {
-    display: flex;
-    justify-content: space-between;
-}
-
-.box__film {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }

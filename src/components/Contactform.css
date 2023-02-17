@@ -3,6 +3,9 @@
 MODAL
 
 */
+.modal__shownes {
+    display: none;
+}
 
 .modal__contact {
     position: absolute;
@@ -21,8 +24,8 @@ MODAL
     display: flex;
     flex-direction: column;
     text-align: center;
-
 }
+
 
 .modal__title {
     margin: 20px auto;
@@ -146,11 +149,10 @@ label {
     position: relative;
 }
 
-.modal__show {
-    visibility: visible;
-    display: flex;
+.modal__hide {
+    display: none;
 }
 
-.modal__hide {
-    display: none !important;
+.modal__show {
+    display: block !important;
 }
