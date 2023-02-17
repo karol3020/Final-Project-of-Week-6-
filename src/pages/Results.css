@@ -130,6 +130,14 @@
     transform: translate(0);
 }
 
+    span > .MuiSvgIcon-root {
+        position: relative;
+        top: 2%;
+        left: 50%;
+        transform: translate(-50%);
+        font-size: 50px;
+    }
+
 @keyframes rotate {
     0% {
         transform: rotate(0deg);
@@ -151,7 +159,7 @@ FILMS
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;    
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 
 .film {

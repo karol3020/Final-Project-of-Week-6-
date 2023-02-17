@@ -5,10 +5,11 @@ import Search from '@mui/icons-material/Search';
 import { useNavigate, useParams } from 'react-router-dom'
 import Filmsrecom from '../components/Filmsrecom';
 import Contactform from '../components/Contactform';
+import KeyboardDoubleArrowUp from '@mui/icons-material/KeyboardDoubleArrowUp';
 
 function Results() {
 
-    // let navigate = useNavigate()
+    let navigate = useNavigate()
 
     const {title} = useParams()
     const [films , setFilms] = useState([])
@@ -67,6 +68,7 @@ function Results() {
         <div className='results'>
             <div className="box">
                 <span>
+                    <KeyboardDoubleArrowUp />
                     <div className="film__container">
 
                 {
@@ -86,6 +88,7 @@ function Results() {
                     ) : (
                         films.Search?.map((film) => (
                             <div className="film"
+                            onClick={() => navigate('/film')}
                             // key={film.id}
                             >
                             <div className="film__title" 

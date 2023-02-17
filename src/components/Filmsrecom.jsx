@@ -23,9 +23,9 @@ function Filmsrecom() {
 
   return (
     <div className='space'>
+                <h2>Recommendetions</h2>
          <div className="films__recom">
             <div className="box__films">
-                
                    {
                    recentfilms.Search?.slice(6,10).map((film) => (
                        <div className="film2"
