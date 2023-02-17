@@ -23,22 +23,19 @@ function Filmsrecom() {
          <div className="films__recom">
             <div className="box__films">
                 
-                {
-                    recentfilms.Search?.map((film) => {
-                <div className="film2">
-                    <div className="film__img2">
-                        <img src={film.Poster} />
-                    </div>
-                    <div className="film__text2">
-                        <h1>{film.Title}</h1>
-                        <h2>Actors</h2>
-                        <h3>Year</h3>
-                        <h4>Description</h4>
+                   {
+                   recentfilms.Search?.map((film) => (
+                       <div className="film2">
+                            <div className="film__img2">
+                       <img src={film.Poster} />
+                       </div>
+                       <div className="film__text2">
+                       <h4>{film.Title}</h4>
+                        <h4>{film.Year}</h4>
                     </div>
                 </div>       
-                    })
+                ))
                 }
-
             </div>
         </div>
     </div>

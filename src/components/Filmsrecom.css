@@ -2,18 +2,26 @@
     width: 100%;
     max-width: 1200px;
     margin: 60px auto;
-    height: 25vh;
+    height: 30vh;
 }
 
 
 .box__films {
     display: flex;
     justify-content: space-between;
+
 }
 
 .film2 {
-    background-color: red;
     min-width: 25vh;
     display: flex;
     flex-direction: column;
+}
+
+
+
+.film__img2 > img {
+    max-width: 25vh;
+    aspect-ratio: 3/2;
+    object-fit: contain;
 }

@@ -14,7 +14,7 @@ function OneResult() {
     async function fetchPosts() {
         setLoading(false)
         const { data } = await axios.get(`https://www.omdbapi.com/?i=tt3896198&apikey=2d8b895b&s=batman`)
-        console.log(data)
+        // console.log(data)
         setFIlms(data)
     }
 
@@ -38,7 +38,6 @@ function OneResult() {
             </header>
         </div>
 
-        <div className="container onefilm">
 
         {
             loading ? (
@@ -57,7 +56,8 @@ function OneResult() {
                 </div>
             </div>
             ) : (
-                 films.Search?.map((film) => {
+                films.Search?.map((film) => (
+                    
                     <div className="container">
                         <div className="film__box">
                             <div className="img__box">
@@ -70,12 +70,12 @@ function OneResult() {
                             </div>
                         </div>
                     </div>            
-                })
+                        ))
+               
             )
-        }
-    </div>
+        }   
 
-        
+      
             <div className="films__recom">
                 <div className="box__films">
                     <div className="box__film">
