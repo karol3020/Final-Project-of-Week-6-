@@ -13,8 +13,7 @@ function App() {
         <Routes>
           <Route path='/' element={ <Home /> } />
             <Route path=':Title' element={<Results />} />
-              <Route path='/film' element={<OneResult />} ></Route>
-              {/* <Route path='/contact' element={} /> */}
+              <Route path='/film/:imdbID' element={<OneResult />} ></Route>
         </Routes>
       </Router>
     </div>

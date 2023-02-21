@@ -17,6 +17,9 @@
     height: 30vh;
     border: 2px solid rgba(255, 213, 0, 0.647);
     background-color: rgba(0, 0, 0, 0.366);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -30,7 +33,9 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    margin-right: 15px;
 }
+
 
 .film__img2 > img {
     margin-top: 50px;
@@ -39,6 +44,33 @@
     object-fit: contain;
 }
 
+
 .film__text2 {
     color: white;
+}
+
+.film2--skeleton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.film__img2--skeleton > h1 {
+    font-size: 36px;
+    color: white;
+    animation: upanddown 4s infinite;
+}
+
+@keyframes upanddown{
+    0% {
+        transform: translateY(100px);
+    }
+
+    50% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(100px);
+    }
 }

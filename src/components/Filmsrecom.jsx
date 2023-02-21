@@ -1,14 +1,14 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import './Filmsrecom.css'
 
 function Filmsrecom() {
     
-    let navigate = useNavigate()
+    const {imdbID} = useParams()
 
     const [recentfilms, setrecentFilm] = useState([])
-    const [loading , setLoading] = useState(false)
+    const [loading , setLoading] = useState(true)
 
     async function fetchrecomFilms() {
         setLoading(false)
@@ -26,10 +26,24 @@ function Filmsrecom() {
                 <h2>Recommendetions</h2>
          <div className="films__recom">
             <div className="box__films">
-                   {
-                   recentfilms.Search?.slice(6,10).map((film) => (
+                   { 
+                        loading ? (
+                            new Array(1).fill(0).map((_, index) => (
+                                    <div className="film2--skeleton"
+                                    //  key={index} 
+                                    >
+                                    <div className="film__img2--skeleton">
+                                        <h1>
+                                            LOADING...    
+                                        </h1>
+                                    </div>
+                                </div>
+                            ))
+                        ) : (
+
+                             recentfilms.Search?.slice(6,10).map((film) => (
                        <div className="film2"
-                       onClick={() => navigate('/film')}
+                       onClick={() => <Link to={`/film/${imdbID}`} />}
                        >
                         <div className="film__img2">
                        <img src={film.Poster} />
@@ -40,7 +54,8 @@ function Filmsrecom() {
                     </div>
                 </div>       
                 ))
-                }
+                )
+            }
             </div>
         </div>
     </div>

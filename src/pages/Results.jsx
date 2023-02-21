@@ -2,14 +2,12 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import './Results.css'
 import Search from '@mui/icons-material/Search';
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Filmsrecom from '../components/Filmsrecom';
 import Contactform from '../components/Contactform';
-import KeyboardDoubleArrowUp from '@mui/icons-material/KeyboardDoubleArrowUp';
+// import KeyboardDoubleArrowUp from '@mui/icons-material/KeyboardDoubleArrowUp';
 
 function Results() {
-
-    let navigate = useNavigate()
 
     const {title} = useParams()
     const [films , setFilms] = useState([])
@@ -37,7 +35,7 @@ function Results() {
             onSearch()
         }
     }
-
+    
     function showResults() {
         const add = document.body.querySelector( '.results')
         add.classList += ( '.results--show')
@@ -68,7 +66,9 @@ function Results() {
         <div className='results'>
             <div className="box">
                 <span>
-                    <KeyboardDoubleArrowUp />
+                    {/* <KeyboardDoubleArrowUp
+                    // onClick={() => hideResults()} 
+                    /> */}
                     <div className="film__container">
 
                 {
@@ -86,10 +86,10 @@ function Results() {
                 </div>
                         ))
                     ) : (
-                        films.Search?.map((film) => (
+                        films.Search?.slice(0,6).map((film) => (
                             <div className="film"
-                            onClick={() => navigate('/film')}
-                            // key={film.id}
+                            onClick={() => <Link to={`/film/${film.imdbID}`} />}
+                            key={film.id}
                             >
                             <div className="film__title" 
                              >{film.Title}</div>

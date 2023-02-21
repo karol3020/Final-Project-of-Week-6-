@@ -12,15 +12,14 @@ function OneResult() {
     let navigate = useNavigate()
 
     const {imdbID} = useParams()
+    console.log(imdbID)
     const [ films, setFIlms] = useState([])
     const [loading, setLoading] = useState(true)
-    // const [searchId, setSearchId] = useState()
 
     async function fetchPosts() {
         setLoading(false)
-        const { data } = await axios.get(`https://www.omdbapi.com/?apikey=2d8b895b&i=tt0372784`)
+        const { data } = await axios.get(`https://www.omdbapi.com/?apikey=2d8b895b&i=${imdbID}`)
         setFIlms(data)
-        console.log(data)
     }
 
     useEffect(() => {
@@ -61,20 +60,21 @@ function OneResult() {
                    <span className='--spa:9'>.</span>
                    <span className='--spa:10'>.</span>
                 </div>
-            ) : (
-                                        
-                        films.title?.map((film) => (
+            ) : ( 
                         <>
-                            <div className="img__box" key={film.id}>
-                                <img src={film.Poster} alt="" />
+                            <div className="img__box" key={films.id}>
+                                <img src={films.Poster} alt="" />
                             </div>
                             <div className="img__info--box">
-                                <h2 className='info'>{film.Title}</h2>
-                                <h4 className='info'>{film.Year}</h4>     
-                                <h4 className='info'>{film.Type}</h4>     
+                                <h1 className='info'>{films.Title}</h1>
+                                <h2 className='info'>{films.Actors}</h2>
+                                <h5 className='info'>Director: {films.Director}</h5>     
+                                <h5 className='info'>Runtime: {films.Runtime}</h5>     
+                                <h5 className='info'>Language: {films.Language}</h5>     
+                                <h5 className='info'>Plot: {films.Plot}</h5>     
+                                <h5 className='info'>Released: {films.Released}</h5>     
                             </div>       
                          </>
-                )) 
             )
         }   
             </div>

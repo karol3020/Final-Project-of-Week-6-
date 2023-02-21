@@ -91,6 +91,10 @@
     place-items: center;
 }
 
+.results--hide {
+    display: none;
+}
+
 .box {
     position: relative;
     width: 1000px;
@@ -159,7 +163,7 @@ FILMS
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;    
-    /* margin-top: 50px; */
+    margin-top: 40px;
 }
 
 .film {

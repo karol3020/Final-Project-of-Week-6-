@@ -76,14 +76,16 @@
 
 .film__box {
     width: 100%;
-    height: 50vh;
+    height: 65vh;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 
 .img__box {
     width: 50%;
     display: flex;
-    place-items: center;
     justify-content: center;
 }
 
@@ -91,14 +93,13 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    padding: 55px 0;
     font-size: 22px;
     letter-spacing: 6px;
 } 
 
 .info {
-    padding-bottom: 16px;
+    padding-bottom: 22px;
+    color: white;
 }
 
 .film__box--skeleton {
